@@ -1,40 +1,35 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8fj3e30bvtws"]
 
 [ext_resource type="Script" uid="uid://bmo8q0stjdw3a" path="res://scripts/main_menu.gd" id="1_06t4h"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_7vrkn"]
-font_size = 30
+[ext_resource type="Texture2D" uid="uid://buvcd2itekl14" path="res://pictures/GameBackground.png" id="2_7vrkn"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_06t4h")
 
-[node name="NameGame" type="Label" parent="."]
-offset_left = 499.0
-offset_top = 146.0
-offset_right = 671.0
-offset_bottom = 188.0
-text = "Track Game"
-label_settings = SubResource("LabelSettings_7vrkn")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(571.5, 312.5)
+scale = Vector2(1.24512, 1.24512)
+texture = ExtResource("2_7vrkn")
 
 [node name="Play" type="Button" parent="."]
 offset_left = 533.0
-offset_top = 225.0
+offset_top = 319.0
 offset_right = 630.0
-offset_bottom = 256.0
+offset_bottom = 350.0
 text = "Грати"
 
 [node name="Settings" type="Button" parent="."]
 offset_left = 518.0
-offset_top = 296.0
+offset_top = 390.0
 offset_right = 650.0
-offset_bottom = 336.0
+offset_bottom = 430.0
 text = "Налаштування"
 
 [node name="Exit" type="Button" parent="."]
 offset_left = 536.0
-offset_top = 367.0
+offset_top = 461.0
 offset_right = 634.0
-offset_bottom = 398.0
+offset_bottom = 492.0
 text = "Вихід"
 
 [connection signal="button_down" from="Play" to="." method="_on_play_button_down"]

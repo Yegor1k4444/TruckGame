@@ -1,3 +1,56 @@
-[gd_scene format=3 uid="uid://ckq7alkmxm7fp"]
+[gd_scene load_steps=6 format=3 uid="uid://ckq7alkmxm7fp"]
+
+[ext_resource type="Script" uid="uid://bsgjibq1kgpu1" path="res://scripts/truck.gd" id="1_hy71t"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bbc7h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jctl8"]
+size = Vector3(2.01331, 2.02124, 4.00037)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hy71t"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bbc7h"]
 
 [node name="PlayScrene" type="Node3D"]
+
+[node name="Truck" type="VehicleBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34846, 0)
+script = ExtResource("1_hy71t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Truck"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 4, 0, 1, 0)
+mesh = SubResource("BoxMesh_bbc7h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Truck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000671387, 1.00427, -0.00811768)
+shape = SubResource("BoxShape3D_jctl8")
+
+[node name="FrontLeftWheel" type="VehicleWheel3D" parent="Truck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1.83754)
+
+[node name="FrontRightWheel" type="VehicleWheel3D" parent="Truck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1.83754)
+
+[node name="BackLeftWheel" type="VehicleWheel3D" parent="Truck"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.13045, 0, 1.74659)
+use_as_traction = true
+
+[node name="BackRightWheel" type="VehicleWheel3D" parent="Truck"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.13438, 0, 1.74659)
+use_as_traction = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(16.07, 0, 0, 0, 0.998, 0, 0, 0, 16, 0, 0, 0)
+mesh = SubResource("PlaneMesh_hy71t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1.6, 0, 0, 0, 1, 0, 0, 0, 1.6, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_bbc7h")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.934198, 0.356754, 0, -0.356754, 0.934198, 0, 4.58089, 6.94738)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.506725, -0.563063, 0.652832, -0.00253527, 0.756274, 0.65425, -0.862104, -0.33318, 0.381796, 0, 7.7049, 7.68571)
