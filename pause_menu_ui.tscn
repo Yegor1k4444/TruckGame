@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://u18ywghvoyrl"]
+
+[ext_resource type="Script" uid="uid://cw1ti4k538n8f" path="res://scripts/pause_menu_ui.gd" id="1_g2uxf"]
+
+[node name="PauseMenuUI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_g2uxf")
+
+[node name="BackgroundMenu" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.509804)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxButton" type="VBoxContainer" parent="BackgroundMenu"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 200.0
+
+[node name="ReturnToMenu" type="Button" parent="BackgroundMenu/BoxButton"]
+layout_mode = 2
+text = "Повернутись в меню"
+
+[node name="ExitGame" type="Button" parent="BackgroundMenu/BoxButton"]
+layout_mode = 2
+text = "Вийти з гри"
+
+[connection signal="pressed" from="BackgroundMenu/BoxButton/ReturnToMenu" to="." method="_on_return_to_menu_pressed"]
+[connection signal="pressed" from="BackgroundMenu/BoxButton/ExitGame" to="." method="_on_exit_game_pressed"]
