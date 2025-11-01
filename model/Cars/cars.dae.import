@@ -1,0 +1,65 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://umep5enn3vt7"
+path="res://.godot/imported/cars.dae-40984736c1a8b8ace41fb3412035011c.scn"
+
+[deps]
+
+source_file="res://model/Cars/cars.dae"
+dest_files=["res://.godot/imported/cars.dae-40984736c1a8b8ace41fb3412035011c.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=false
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:Floor": {
+"import/skip_import": true
+},
+"PATH:Physical_Sky": {
+"import/skip_import": true
+},
+"PATH:bas": {
+"import/skip_import": true
+},
+"PATH:car_1": {
+"import/skip_import": true
+},
+"PATH:car_2": {
+"import/skip_import": true
+},
+"PATH:car_jeep": {
+"import/skip_import": true
+},
+"PATH:car_tsal": {
+"import/skip_import": true
+},
+"PATH:little_truck": {
+"import/skip_import": true
+},
+"PATH:van": {
+"import/skip_import": true
+}
+}
+}

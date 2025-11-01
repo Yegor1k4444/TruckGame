@@ -1,16 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://ckq7alkmxm7fp"]
+[gd_scene load_steps=21 format=3 uid="uid://ckq7alkmxm7fp"]
 
 [ext_resource type="Script" uid="uid://bsgjibq1kgpu1" path="res://scripts/truck.gd" id="1_hy71t"]
 [ext_resource type="PackedScene" uid="uid://u18ywghvoyrl" path="res://pause_menu_ui.tscn" id="2_bbc7h"]
+[ext_resource type="AudioStream" uid="uid://kwql06l6bj5y" path="res://sounds/effect/truck-engine-sound.mp3" id="2_svas2"]
+[ext_resource type="PackedScene" uid="uid://umep5enn3vt7" path="res://model/Cars/cars.dae" id="2_w0wvx"]
 [ext_resource type="Script" uid="uid://b0ywi7cp6wrum" path="res://scripts/game_manager.gd" id="3_jctl8"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_bbc7h"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jctl8"]
-albedo_color = Color(1, 0.521569, 0.121569, 1)
+[ext_resource type="AudioStream" uid="uid://u1cdgjus3sbe" path="res://sounds/radio/Late-at-Night(chosic.com).mp3" id="5_svas2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jctl8"]
-size = Vector3(2.01331, 2.02124, 4.00037)
+size = Vector3(3.11612, 3.10546, 10.6535)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_hy71t"]
 
@@ -50,40 +48,45 @@ sky = SubResource("Sky_x86kw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.0445, 1.34846, 59.3458)
 script = ExtResource("1_hy71t")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Truck"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 4, 0, 1, 0)
-mesh = SubResource("BoxMesh_bbc7h")
-surface_material_override/0 = SubResource("StandardMaterial3D_jctl8")
+[node name="cars" parent="Truck" instance=ExtResource("2_w0wvx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.088501, -0.137158, 2.53989)
+
+[node name="Truck" parent="Truck/cars" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.255775, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Truck"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000671387, 1.00427, -0.00811768)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.036272, 1.25662, -1.17161)
 shape = SubResource("BoxShape3D_jctl8")
 
 [node name="FrontLeftWheel" type="VehicleWheel3D" parent="Truck"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1, 0, -1.83754)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.61229, 0.0500633, -4.78097)
 use_as_steering = true
 
 [node name="FrontRightWheel" type="VehicleWheel3D" parent="Truck"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0, -1.83754)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.33706, 0, -4.83808)
 use_as_steering = true
 
 [node name="BackLeftWheel" type="VehicleWheel3D" parent="Truck"]
-transform = Transform3D(-0.957224, 0.278862, 0.0771959, 0.26614, 0.953224, -0.143293, -0.113544, -0.116619, -0.986665, -0.89591, 0, 1.74659)
+transform = Transform3D(-0.99349, 0.0226475, 0.111652, 0.00932371, 0.992918, -0.118431, -0.113544, -0.116619, -0.986665, -1.54255, 0, 2.63604)
 use_as_traction = true
 
 [node name="BackRightWheel" type="VehicleWheel3D" parent="Truck"]
-transform = Transform3D(-0.999997, 0, 0.00232118, 0, 1, 0, -0.00232118, 0, -0.999997, 0.893088, 0, 1.74659)
+transform = Transform3D(-0.999997, 0, 0.00232118, 0, 1, 0, -0.00232118, 0, -0.999997, 1.31151, 0, 2.58485)
 use_as_traction = true
 
 [node name="SpringArm3D" type="SpringArm3D" parent="Truck"]
-transform = Transform3D(1, 0, 0, 0, -0.988874, -0.148759, 0, 0.148759, -0.988874, 0, 3.43664, 2.45963)
+transform = Transform3D(1, 0, 0, 0, -0.983106, -0.183042, 0, 0.183042, -0.983106, 0, 4.53417, 4.37478)
 
 [node name="ThirdPersonCamera" type="Camera3D" parent="Truck/SpringArm3D"]
-transform = Transform3D(1, 0, 0, 0, -0.995541, -0.0943341, 0, 0.0943341, -0.995541, -0.116566, -0.176434, -1.26072)
+transform = Transform3D(1, 0, 0, 0, -0.99554, -0.094334, 0, 0.094334, -0.99554, -0.116566, -1.97855, -1.53182)
 current = true
 
 [node name="FirstPersonCamera" type="Camera3D" parent="Truck"]
-transform = Transform3D(1, 0, 0, 0, 0.914614, 0.404328, 0, -0.404328, 0.914614, -0.459698, 1.40723, -1.94247)
+transform = Transform3D(1, 0, 0, 0, 0.914614, 0.404328, 0, -0.404328, 0.914614, -0.661247, 1.72598, -6.22298)
+
+[node name="EngineSound" type="AudioStreamPlayer3D" parent="Truck"]
+stream = ExtResource("2_svas2")
+autoplay = true
 
 [node name="Ground" type="StaticBody3D" parent="."]
 
@@ -132,9 +135,11 @@ environment = SubResource("Environment_6snoo")
 transform = Transform3D(1, 0, 0, 0, 0.596351, 0.802724, 0, -0.802724, 0.596351, -13.8897, 31.9305, 16.6993)
 shadow_enabled = true
 
-[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("objective_label")]
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("objective_label", "radio_player", "tutorial_label")]
 script = ExtResource("3_jctl8")
 objective_label = NodePath("../CanvasLayer/Label")
+radio_player = NodePath("../RadioMusicPlayer")
+tutorial_label = NodePath("../CanvasLayer/TutorialLabel")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -142,5 +147,38 @@ objective_label = NodePath("../CanvasLayer/Label")
 offset_right = 291.0
 offset_bottom = 86.0
 
+[node name="CheckBox" type="CheckBox" parent="CanvasLayer"]
+offset_left = 1070.0
+offset_top = -1.0
+offset_right = 1150.0
+offset_bottom = 56.0
+button_pressed = true
+text = "Радіо"
+
+[node name="TutorialLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 30
+text = "Натисніть [W], щоб почати рух"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RadioMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_svas2")
+autoplay = true
+
 [connection signal="body_entered" from="WereHouse_B/Area3D" to="GameManager" method="_on_warehouse_b_reached"]
 [connection signal="body_entered" from="Factory_C/Area3D" to="GameManager" method="_on_factory_c_reached"]
+[connection signal="toggled" from="CanvasLayer/CheckBox" to="GameManager" method="_on_check_box_toggled"]
+
+[editable path="Truck/cars"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bea01yxm36ryt"]
+
+[ext_resource type="PackedScene" uid="uid://umep5enn3vt7" path="res://model/Cars/cars.dae" id="1_32nrr"]
+
+[node name="cars" instance=ExtResource("1_32nrr")]
+
+[node name="Truck" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
