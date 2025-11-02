@@ -4,8 +4,8 @@ extends VehicleBody3D
 @onready var engine_sound = $EngineSound
 
 # Налаштування, які можна змінювати в інспекторі
-@export var engine_power: float = 120.0
-@export var steer_angle: float = 0.6
+@export var engine_power: float = 160.0
+@export var steer_angle: float = 0.7
 
 
 func _physics_process(delta):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ckq7alkmxm7fp"]
+[gd_scene load_steps=20 format=3 uid="uid://ckq7alkmxm7fp"]
 
 [ext_resource type="Script" uid="uid://bsgjibq1kgpu1" path="res://scripts/truck.gd" id="1_hy71t"]
 [ext_resource type="PackedScene" uid="uid://u18ywghvoyrl" path="res://pause_menu_ui.tscn" id="2_bbc7h"]
@@ -6,13 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://umep5enn3vt7" path="res://model/Cars/cars.dae" id="2_w0wvx"]
 [ext_resource type="Script" uid="uid://b0ywi7cp6wrum" path="res://scripts/game_manager.gd" id="3_jctl8"]
 [ext_resource type="AudioStream" uid="uid://u1cdgjus3sbe" path="res://sounds/radio/Late-at-Night(chosic.com).mp3" id="5_svas2"]
+[ext_resource type="MeshLibrary" uid="uid://bnhx3us1pnrv0" path="res://model/City/my_city_library.meshlib" id="7_vk80v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jctl8"]
 size = Vector3(3.11612, 3.10546, 10.6535)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_hy71t"]
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bbc7h"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jctl8"]
 
@@ -45,11 +42,11 @@ sky = SubResource("Sky_x86kw")
 [node name="PlayScrene" type="Node3D"]
 
 [node name="Truck" type="VehicleBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.0445, 1.34846, 59.3458)
+transform = Transform3D(0.555309, 0, 0, 0, 0.468682, 0, 0, 0, 0.421814, 6.15491, 2.86837, 136.971)
 script = ExtResource("1_hy71t")
 
 [node name="cars" parent="Truck" instance=ExtResource("2_w0wvx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.088501, -0.137158, 2.53989)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.088501, -0.286223, 2.53989)
 
 [node name="Truck" parent="Truck/cars" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.255775, 0)
@@ -59,19 +56,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.036272, 1.25662, -1.17161)
 shape = SubResource("BoxShape3D_jctl8")
 
 [node name="FrontLeftWheel" type="VehicleWheel3D" parent="Truck"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.61229, 0.0500633, -4.78097)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.27895, -0.0913954, -4.78098)
 use_as_steering = true
 
 [node name="FrontRightWheel" type="VehicleWheel3D" parent="Truck"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.33706, 0, -4.83808)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.990301, -0.141458, -4.8381)
 use_as_steering = true
 
 [node name="BackLeftWheel" type="VehicleWheel3D" parent="Truck"]
-transform = Transform3D(-0.99349, 0.0226475, 0.111652, 0.00932371, 0.992918, -0.118431, -0.113544, -0.116619, -0.986665, -1.54255, 0, 2.63604)
+transform = Transform3D(-0.99349, 0.0226475, 0.111652, 0.00932371, 0.992918, -0.118431, -0.113544, -0.116619, -0.986665, -1.24936, -0.141458, 2.63605)
 use_as_traction = true
 
 [node name="BackRightWheel" type="VehicleWheel3D" parent="Truck"]
-transform = Transform3D(-0.999997, 0, 0.00232118, 0, 1, 0, -0.00232118, 0, -0.999997, 1.31151, 0, 2.58485)
+transform = Transform3D(-0.999997, 0, 0.00232118, 0, 1, 0, -0.00232118, 0, -0.999997, 1.03506, -0.141458, 2.58484)
 use_as_traction = true
 
 [node name="SpringArm3D" type="SpringArm3D" parent="Truck"]
@@ -88,20 +85,10 @@ transform = Transform3D(1, 0, 0, 0, 0.914614, 0.404328, 0, -0.404328, 0.914614, 
 stream = ExtResource("2_svas2")
 autoplay = true
 
-[node name="Ground" type="StaticBody3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
-mesh = SubResource("PlaneMesh_hy71t")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, -0.0158558, 0.0542998, -0.0024004)
-shape = SubResource("WorldBoundaryShape3D_bbc7h")
-
 [node name="PauseMenuUI" parent="." instance=ExtResource("2_bbc7h")]
 
 [node name="WereHouse_A" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.36933, 0, 0, 0, 2.39635, 0, 0, 0, 1.6971, 38.1322, 1.19421, 59.4576)
+transform = Transform3D(2.36933, 0, 0, 0, 2.39635, 0, 0, 0, 1.6971, 12.39, 3.23197, 137.832)
 mesh = SubResource("BoxMesh_jctl8")
 surface_material_override/0 = SubResource("StandardMaterial3D_wtx0a")
 
@@ -176,6 +163,14 @@ vertical_alignment = 1
 [node name="RadioMusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_svas2")
 autoplay = true
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("7_vk80v")
+cell_scale = 4.0
+data = {
+"cells": PackedInt32Array(2, 68, 0, 2, 64, 1441792, 6, 68, 655364, 6, 64, 1441792, 2, 60, 31, 2, 56, 31, 2, 52, 31, 2, 48, 28, 6, 48, 1441824, 10, 48, 1441823, 14, 48, 1441823, 18, 48, 1441823)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [connection signal="body_entered" from="WereHouse_B/Area3D" to="GameManager" method="_on_warehouse_b_reached"]
 [connection signal="body_entered" from="Factory_C/Area3D" to="GameManager" method="_on_factory_c_reached"]
