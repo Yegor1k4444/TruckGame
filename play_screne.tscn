@@ -21,14 +21,16 @@ albedo_color = Color(0.403922, 1, 0.121569, 0.32549)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w0wvx"]
 albedo_color = Color(1, 0.12549, 0.0509804, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wtx0a"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_vk80v"]
+radius = 8.26034
 
 [sub_resource type="BoxMesh" id="BoxMesh_wtx0a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svas2"]
 albedo_color = Color(0.137255, 0.164706, 1, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_svas2"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_x86kw"]
+radius = 3.24282
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vk80v"]
 
@@ -42,7 +44,7 @@ sky = SubResource("Sky_x86kw")
 [node name="PlayScrene" type="Node3D"]
 
 [node name="Truck" type="VehicleBody3D" parent="."]
-transform = Transform3D(0.555309, 0, 0, 0, 0.468682, 0, 0, 0, 0.421814, 6.15491, 2.86837, 136.971)
+transform = Transform3D(0.555309, 0, 0, 0, 0.468682, 0, 0, 0, 0.421814, 0, 2.56876, 4.73368)
 script = ExtResource("1_hy71t")
 
 [node name="cars" parent="Truck" instance=ExtResource("2_w0wvx")]
@@ -56,19 +58,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.036272, 1.25662, -1.17161)
 shape = SubResource("BoxShape3D_jctl8")
 
 [node name="FrontLeftWheel" type="VehicleWheel3D" parent="Truck"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.27895, -0.0913954, -4.78098)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.27895, -0.287101, -4.78098)
 use_as_steering = true
 
 [node name="FrontRightWheel" type="VehicleWheel3D" parent="Truck"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.990301, -0.141458, -4.8381)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.990301, -0.175771, -4.8381)
 use_as_steering = true
 
 [node name="BackLeftWheel" type="VehicleWheel3D" parent="Truck"]
-transform = Transform3D(-0.99349, 0.0226475, 0.111652, 0.00932371, 0.992918, -0.118431, -0.113544, -0.116619, -0.986665, -1.24936, -0.141458, 2.63605)
+transform = Transform3D(-0.99349, 0.0226475, 0.111652, 0.00932371, 0.992918, -0.118431, -0.113544, -0.116619, -0.986665, -1.24936, -0.301452, 2.63605)
 use_as_traction = true
 
 [node name="BackRightWheel" type="VehicleWheel3D" parent="Truck"]
-transform = Transform3D(-0.999997, 0, 0.00232118, 0, 1, 0, -0.00232118, 0, -0.999997, 1.03506, -0.141458, 2.58484)
+transform = Transform3D(-0.999997, 0, 0.00232118, 0, 1, 0, -0.00232118, 0, -0.999997, 1.03506, -0.2689, 2.58484)
 use_as_traction = true
 
 [node name="SpringArm3D" type="SpringArm3D" parent="Truck"]
@@ -88,12 +90,12 @@ autoplay = true
 [node name="PauseMenuUI" parent="." instance=ExtResource("2_bbc7h")]
 
 [node name="WereHouse_A" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.36933, 0, 0, 0, 2.39635, 0, 0, 0, 1.6971, 12.39, 3.23197, 137.832)
+transform = Transform3D(2.36933, 0, 0, 0, 2.39635, 0, 0, 0, 1.6971, 16.485, 4.82739, 0)
 mesh = SubResource("BoxMesh_jctl8")
 surface_material_override/0 = SubResource("StandardMaterial3D_wtx0a")
 
 [node name="WereHouse_B" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.61498, 0, 0, 0, 1.46015, 0, 0, 0, 1.755, -20.7121, 0.862947, -27.7864)
+transform = Transform3D(1.61498, 0, 0, 0, 1.46015, 0, 0, 0, 1.755, -50.9608, 1.74468, -142.179)
 mesh = SubResource("BoxMesh_svas2")
 surface_material_override/0 = SubResource("StandardMaterial3D_w0wvx")
 
@@ -102,18 +104,18 @@ transform = Transform3D(1.34753, 0, 0, 0, 1.12621, 0, 0, 0, 1.08174, -0.225693, 
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WereHouse_B/Area3D"]
 transform = Transform3D(1.08899, 0, 0, 0, 1.13322, 0, 0, 0, 1, 0, 0, 0)
-shape = SubResource("BoxShape3D_wtx0a")
+shape = SubResource("SphereShape3D_vk80v")
 
 [node name="Factory_C" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.21183, 0, -2.42575, 0, 1.7777, 0, 2.93392, 0, 1.82873, 68.7563, 0.962793, -63.0988)
+transform = Transform3D(2.21183, 0, -2.42575, 0, 1.7777, 0, 2.93392, 0, 1.82873, 92.5701, 5.88264, -17.2369)
 mesh = SubResource("BoxMesh_wtx0a")
 surface_material_override/0 = SubResource("StandardMaterial3D_svas2")
 
 [node name="Area3D" type="Area3D" parent="Factory_C"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Factory_C/Area3D"]
-transform = Transform3D(1, 0, -7.7486e-07, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-shape = SubResource("BoxShape3D_svas2")
+transform = Transform3D(1, 0, -7.15256e-07, 0, 1, 0, 1.49012e-06, 0, 1, -0.00707817, 0, 1.90735e-06)
+shape = SubResource("SphereShape3D_x86kw")
 
 [node name="Sky" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6snoo")
@@ -166,9 +168,9 @@ autoplay = true
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("7_vk80v")
-cell_scale = 4.0
+cell_scale = 10.0
 data = {
-"cells": PackedInt32Array(2, 68, 0, 2, 64, 1441792, 6, 68, 655364, 6, 64, 1441792, 2, 60, 31, 2, 56, 31, 2, 52, 31, 2, 48, 28, 6, 48, 1441824, 10, 48, 1441823, 14, 48, 1441823, 18, 48, 1441823)
+"cells": PackedInt32Array(0, 1, 1441792, 10, 1, 655364, 0, 65528, 655391, 0, 65519, 655393, 0, 65511, 655391, 0, 65502, 655391, 0, 65493, 29, 10, 65493, 1048607, 65526, 65519, 1048607, 65517, 65519, 1048607, 65507, 65519, 1048607, 65497, 65519, 1048607, 65487, 65519, 1048604, 65487, 65509, 31, 65487, 65499, 31, 65487, 65489, 31, 65487, 65498, 32, 65487, 65479, 30, 65497, 65479, 1441823, 65507, 65479, 1441823, 65517, 65479, 655388, 65517, 65469, 31, 65517, 65459, 31, 65517, 65449, 1441820, 65507, 65449, 1441823, 65497, 65449, 1441823, 65487, 65449, 1441825, 65487, 65459, 655391, 65487, 65469, 655391, 65477, 65449, 1048607, 65467, 65449, 1048607, 65457, 65449, 1048607, 65447, 65449, 1048607, 65437, 65449, 1048607, 20, 65493, 1441823, 30, 65493, 1441823, 39, 65493, 1441825, 49, 65493, 655388, 39, 65503, 655391, 39, 65513, 655391, 39, 65523, 655391, 39, 65533, 655360, 65478, 65479, 1179679, 65477, 65479, 1048607, 65467, 65479, 1048607, 65457, 65479, 1048607, 65447, 65479, 1048607, 65437, 65479, 1048607, 65427, 65479, 1048604, 65427, 65449, 33, 65427, 65469, 31, 65427, 65459, 31, 65427, 65439, 31, 65427, 65429, 31, 65427, 65419, 31, 65427, 65409, 28, 65437, 65409, 1441823, 65447, 65409, 1441823, 65457, 65409, 1441823, 65467, 65409, 1441823, 65477, 65409, 1441823, 65487, 65409, 1441823, 65497, 65409, 1441823, 65507, 65409, 1441823, 65517, 65409, 1441823, 65527, 65409, 1441823, 1, 65409, 1441823, 11, 65409, 1441820, 11, 65419, 655391, 11, 65429, 655391, 11, 65439, 655391, 11, 65449, 655391, 11, 65459, 655391, 11, 65469, 1048604, 21, 65469, 1048607, 31, 65469, 1048607, 49, 65483, 31, 39, 65469, 1441823, 49, 65479, 655391, 49, 65469, 1441820)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
