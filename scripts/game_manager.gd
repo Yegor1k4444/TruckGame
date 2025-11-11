@@ -69,9 +69,9 @@ func update_ui_objective():
 
 	match current_mission:
 		Missions.GO_TO_WAREHOUSE_B:
-			objective_label.text = "Завдання: Доставте вантаж на Склад Б"
+			objective_label.text = "Завдання: Доставте вантаж до Оранжово-зеленого будинку з синім навесом"
 		Missions.GO_TO_FACTORY_C:
-			objective_label.text = "Вантаж доставлено! Тепер візьміть новий і везіть на Фабрику В"
+			objective_label.text = "Вантаж доставлено! Тепер візьміть новий і везіть до Червоного будинку"
 		Missions.ALL_COMPLETE:
 			objective_label.text = "Всі доставки виконано! Чудова робота!"
 
